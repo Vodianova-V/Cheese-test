@@ -7,13 +7,27 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+
+  runner-job:
 
     runs-on: ubuntu-latest
+    services:
+      postrges:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: 1111
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.8]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -41,7 +55,7 @@ jobs:
         pip install psycopg2==2.8.6
         pip install Collectfast==2.2.0
         pip install django-anymail[mailgun]==8.0
-        pip install django-redis==4.12.16
+        pip install django-redis==4.12.1
         pip install pycodestyle==2.7.0
         pip install flake8==3.8.3
         pip install coverage==5.3
