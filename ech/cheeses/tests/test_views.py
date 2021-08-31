@@ -1,4 +1,5 @@
 import pytest
+
 # from django.test import TestCase
 
 
@@ -6,6 +7,7 @@ from pytest_django.asserts import assertContains
 
 
 from django.urls import reverse
+
 # from django.contrib.sessions.middleware import SessionMiddleware
 # from django.test import RequestFactory
 # from ech.users.models import User
