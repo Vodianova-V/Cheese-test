@@ -48,14 +48,14 @@ def test_good_cheese_list_view(rf):
     assertContains(response, "Cheese List")
 
 
-def test_good_cheese_detail_view(rf, cheese):
+def test_good_cheese_detail_view(rf, cheese):  # noqa: F811
     # Order some cheese from the CheeseFactory
-    cheese = CheeseFactory()
+    cheese = CheeseFactory()  # noqa: F811
 
 
 def test_good_cheese_create_view(rf, admin_user):
     # Order some cheese from the CheeseFactory
-    cheese = CheeseFactory()
+    cheese = CheeseFactory()  # noqa: F811
     # Make a request for our new cheese
     request = rf.get(reverse("cheeses:add"))
     # Add an authenticated user
@@ -81,7 +81,7 @@ def test_cheese_list_contains_2_cheeses(rf):
 
 
 def test_detail_contains_cheese_data(rf):
-    cheese = CheeseFactory()
+    cheese = CheeseFactory()  # noqa: F811
     # Make a request for our new cheese
     url = reverse("cheeses:detail", kwargs={"slug": cheese.slug})
     request = rf.get(url)
@@ -105,7 +105,7 @@ def test_cheese_create_form_valid(rf, admin_user):
     request.user = admin_user
     response = CheeseCreateView.as_view()(request)
     # Get the cheese based on the name
-    cheese = Cheese.objects.get(name="Paski Sir")
+    cheese = Cheese.objects.get(name="Paski Sir")  # noqa: F811
     # Test that the cheese matches our form
     assert cheese.description == "A salty hard cheese"
     assert cheese.firmness == Cheese.Firmness.HARD
@@ -120,7 +120,7 @@ def test_cheese_create_correct_title(rf, admin_user):
     assertContains(response, "Add Cheese")
 
 
-def test_good_cheese_update_view(rf, admin_user, cheese):
+def test_good_cheese_update_view(rf, admin_user, cheese):  # noqa: F811
     url = reverse("cheeses:update", kwargs={"slug": cheese.slug})
     # Make a request for our new cheese
     request = rf.get(url)
@@ -133,7 +133,7 @@ def test_good_cheese_update_view(rf, admin_user, cheese):
     assertContains(response, "Update Cheese")
 
 
-def test_cheese_update(rf, admin_user, cheese):
+def test_cheese_update(rf, admin_user, cheese):  # noqa: F811
     """POST request to CheeseUpdateView updates a cheese
     and redirects.
     """
