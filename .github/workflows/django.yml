@@ -43,9 +43,10 @@ jobs:
     - name: Run flake8
       uses: suo/flake8-github-action@releases/v1
       with:
-        checkName: 'runner-job'   
+        checkName: 'runner-job'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        args: "--ignore=F841"
     - name: Run Tests
       run: |
         coverage run -m pytest
