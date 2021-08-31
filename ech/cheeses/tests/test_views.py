@@ -1,16 +1,13 @@
 import pytest
-from django.test import TestCase
+# from django.test import TestCase
 
-from pytest_django.asserts import (
-    assertContains,
-    assertRedirects
-)
+from pytest_django.asserts import assertContains
 
 
 from django.urls import reverse
-from django.contrib.sessions.middleware import SessionMiddleware
-from django.test import RequestFactory
-from ech.users.models import User
+# from django.contrib.sessions.middleware import SessionMiddleware
+# from django.test import RequestFactory
+# from ech.users.models import User
 from ech.cheeses.models import Cheese
 from ech.cheeses.views import (
     CheeseCreateView,
@@ -18,7 +15,7 @@ from ech.cheeses.views import (
     CheeseDetailView,
     CheeseUpdateView,
 )
-from ech.cheeses.tests.factories import CheeseFactory, cheese
+from ech.cheeses.tests.factories import CheeseFactory
 
 pytestmark = pytest.mark.django_db
 
