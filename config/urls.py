@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
-from ech.cheeses import views
+# from ech.cheeses import views
 
 
 urlpatterns = [
