@@ -16,7 +16,7 @@ from ech.cheeses.views import (
     CheeseDetailView,
     CheeseUpdateView,
 )
-from ech.cheeses.tests.factories import CheeseFactory, cheese
+from ech.cheeses.tests.factories import CheeseFactory, cheese  # noqa: F401
 
 pytestmark = pytest.mark.django_db
 
