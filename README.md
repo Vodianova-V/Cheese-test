@@ -1,3 +1,7 @@
+[![Coverage Status](https://coveralls.io/repos/github/Vodianova-V/Cheese-test/badge.svg?branch=master)]
+(https://coveralls.io/github/Vodianova-V/Cheese-test?branch=master)
+
+
 ech
 ==============================
 
@@ -133,7 +137,6 @@ dropdb --if-exists ech
 dropuser --if-exists myuser
 ```
 
-[![Coverage Status](https://coveralls.io/repos/github/Vodianova-V/Cheese-test/badge.svg?branch=master)]
-(https://coveralls.io/github/Vodianova-V/Cheese-test?branch=master)
+
 
 
