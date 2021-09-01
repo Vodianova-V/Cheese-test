@@ -50,8 +50,20 @@ jobs:
     - name: Run Tests
       run: |
         coverage run -m pytest
-    - name: Coveralls
+    - name: Upload coverage data to coveralls.io
+      run: coveralls --service=github
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        coveralls --service=github
+
+  coveralls:
+    name: Indicate completion to coveralls.io
+    needs: runner-job
+    runs-on: ubuntu-latest
+    container: python:3-slim
+    steps:
+      - name: Finished
+        run: |
+          pip3 install --upgrade coveralls
+          coveralls --service=github --finish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
