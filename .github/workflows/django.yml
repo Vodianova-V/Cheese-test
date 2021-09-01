@@ -38,6 +38,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install flake8
+        pip install python-coveralls
     - name: Run flake8
       uses: TrueBrain/actions-flake8@v2
       with:
