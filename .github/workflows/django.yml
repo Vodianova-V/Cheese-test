@@ -38,7 +38,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install flake8
-        pip install python-coveralls
+        pip install coveralls
     - name: Run flake8
       uses: TrueBrain/actions-flake8@v2
       with:
@@ -51,6 +51,7 @@ jobs:
       run: |
         coverage run -m pytest
     - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.MY_GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        coveralls --service=github
