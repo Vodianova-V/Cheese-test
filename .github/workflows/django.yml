@@ -49,8 +49,6 @@ jobs:
     - name: Run Tests
       run: |
         coverage run -m pytest
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v1
 
     - name: Coveralls
       uses: AndreMiras/coveralls-python-action@develop
