@@ -4,3 +4,4 @@ omit = *migrations*, *tests*
 disable_warnings = already-imported
 plugins =
     django_coverage_plugin
+relative_files = True
