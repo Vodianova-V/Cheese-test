@@ -51,9 +51,3 @@ jobs:
     - name: Run Tests
       run: |
         coverage run -m pytest
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        coveralls --service=github
