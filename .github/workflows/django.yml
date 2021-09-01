@@ -50,10 +50,12 @@ jobs:
     - name: Run Tests
       run: |
         coverage run -m pytest
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload coverage data to coveralls.io
+      run: |
+        pip install coveralls
+        coveralls
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   coveralls:
     name: Indicate completion to coveralls.io
